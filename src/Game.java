@@ -30,19 +30,45 @@ public class Game {
                 String ansWord = "Fish";//Testing my idea out
                 JOptionPane.showMessageDialog(null, "The Word has been selected press Ok to continue.", "20 Questions", JOptionPane.INFORMATION_MESSAGE);
                 while(true){
+                    if(counter == 0){
+                        JOptionPane.showMessageDialog(null, "The correct word is " + ansWord + ". To play again press ok.", "20 Questions", JOptionPane.INFORMATION_MESSAGE);
+                        break;
+                    }
                     String answer = JOptionPane.showInputDialog(null, "Ask a Yes/No question, you have " + counter + " chances left.", "20 Questions", JOptionPane.INFORMATION_MESSAGE);
                     System.out.println(answer);
                     ArrayList<String> stringAns = new ArrayList<String>();
                     for (String word: answer.split(" ")){
                         stringAns.add(word);
                     }
-                    if(counter == 0){
-                        JOptionPane.showMessageDialog(null, "The correct word is " + ansWord + ". To play again press ok.", "20 Questions", JOptionPane.INFORMATION_MESSAGE);
-                        break;
+                    ArrayList<String> verbList = new ArrayList<>();
+                    ArrayList<String> categoriesList = new ArrayList<>();
+                    try{
+                        BufferedReader reader = new BufferedReader(new FileReader("/Users/luke/IdeaProjects/20_Questions/verbs.txt"));
+                        String line;
+                        while((line = reader.readLine()) != null){
+                            verbList.add(line);
+                        }
+                        reader.close();
+                    }catch(Exception e){
+                        System.err.format("Exception occured trying to read file");
+                        e.printStackTrace();
+                    }
+                    try{
+                        BufferedReader reader = new BufferedReader(new FileReader("/Users/luke/IdeaProjects/20_Questions/categories.txt"));
+                        String line;
+                        while((line = reader.readLine()) != null){
+                            categoriesList.add(line);
+                        }
+                        reader.close();
+                    }catch(Exception e){
+                        System.err.print("Exception occured trying to read file");
+                        e.printStackTrace();
                     }
                     for (int i = 0; i < stringAns.size(); i++){
                         if (stringAns.get(i).equalsIgnoreCase("is") || stringAns.get(i).equalsIgnoreCase("it") || stringAns.get(i).equalsIgnoreCase("a")){
                             continue;
+                        }else{
+
                         }
                     }
                     counter--;
