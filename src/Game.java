@@ -68,7 +68,9 @@ public class Game {
                         if (stringAns.get(i).equalsIgnoreCase("is") || stringAns.get(i).equalsIgnoreCase("it") || stringAns.get(i).equalsIgnoreCase("a")){
                             continue;
                         }else{
-
+                            for (int i = 0; i < verbList.size(); i++){
+                                   
+                            }
                         }
                     }
                     counter--;
