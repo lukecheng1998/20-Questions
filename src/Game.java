@@ -28,6 +28,7 @@ public class Game {
                 int getRandomNum = r.nextInt(listOfNouns.size());
                 //String ansWord = listOfNouns.get(getRandomNum);
                 String ansWord = "Fish";//Testing my idea out
+                System.out.println(ansWord);
                 JOptionPane.showMessageDialog(null, "The Word has been selected press Ok to continue.", "20 Questions", JOptionPane.INFORMATION_MESSAGE);
                 while(true){
                     if(counter == 0){
@@ -65,11 +66,26 @@ public class Game {
                         e.printStackTrace();
                     }
                     for (int i = 0; i < stringAns.size(); i++){
-                        if (stringAns.get(i).equalsIgnoreCase("is") || stringAns.get(i).equalsIgnoreCase("it") || stringAns.get(i).equalsIgnoreCase("a")){
+                        int isAnswered = 0; //Check to see if question has been answered only used for basic question as of the moment
+                        if (stringAns.get(i).equalsIgnoreCase("is") || stringAns.get(i).equalsIgnoreCase("it") || stringAns.get(i).equalsIgnoreCase("a") || stringAns.get(i).equalsIgnoreCase("Does")){
                             continue;
                         }else{
-                            for (int i = 0; i < verbList.size(); i++){
-                                   
+                            for (int j = 0; j < verbList.size(); j++){
+                                if(verbList.get(j).equalsIgnoreCase(stringAns.get(i))){
+                                    JOptionPane.showMessageDialog(null, "Yes", "20 Questions", JOptionPane.INFORMATION_MESSAGE);
+                                    isAnswered = 1;
+                                    break;
+                                }
+                            }
+                            for (int j = 0; j < categoriesList.size(); j++){
+                                if(categoriesList.get(j).equalsIgnoreCase(stringAns.get(i))){
+                                    JOptionPane.showMessageDialog(null, "Yes", "20 Questions", JOptionPane.INFORMATION_MESSAGE);
+                                    isAnswered = 1;
+                                    break;
+                                }
+                            }
+                            if(i == stringAns.size() - 1 && isAnswered == 0){
+                                JOptionPane.showMessageDialog(null, "No", "20 Questions", JOptionPane.INFORMATION_MESSAGE);
                             }
                         }
                     }
