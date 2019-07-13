@@ -41,13 +41,19 @@ public class Game {
                     for (String word: answer.split(" ")){
                         stringAns.add(word);
                     }
+                    /*TODO We'll need to convert this to an ArrayList of Array of Strings in order to store the related words*/
                     ArrayList<String> verbList = new ArrayList<>();
                     ArrayList<String> categoriesList = new ArrayList<>();
                     try{
                         BufferedReader reader = new BufferedReader(new FileReader("/Users/luke/IdeaProjects/20_Questions/verbs.txt"));
                         String line;
                         while((line = reader.readLine()) != null){
-                            verbList.add(line);
+                            String wordLine = line;
+                            String[] words = wordLine.split("\\s+");
+                            for(int i = 0; i < words.length; i++){
+                                verbList.add(words[i]);
+                            }
+
                         }
                         reader.close();
                     }catch(Exception e){
@@ -58,19 +64,25 @@ public class Game {
                         BufferedReader reader = new BufferedReader(new FileReader("/Users/luke/IdeaProjects/20_Questions/categories.txt"));
                         String line;
                         while((line = reader.readLine()) != null){
-                            categoriesList.add(line);
+                            String wordLine = line;
+                            String[] words = wordLine.split("\\s+");
+                            for(int i = 0; i < words.length; i++){
+                                categoriesList.add(line);
+                            }
                         }
                         reader.close();
                     }catch(Exception e){
                         System.err.print("Exception occured trying to read file");
                         e.printStackTrace();
                     }
+                    /*END TODO*/
                     for (int i = 0; i < stringAns.size(); i++){
                         int isAnswered = 0; //Check to see if question has been answered only used for basic question as of the moment
-                        if (stringAns.get(i).equalsIgnoreCase("is") || stringAns.get(i).equalsIgnoreCase("it") || stringAns.get(i).equalsIgnoreCase("a") || stringAns.get(i).equalsIgnoreCase("Does")){
+                        if (stringAns.get(i).equalsIgnoreCase("is") || stringAns.get(i).equalsIgnoreCase("it") || stringAns.get(i).equalsIgnoreCase("a") || stringAns.get(i).equalsIgnoreCase("Does") || stringAns.get(i).equalsIgnoreCase("an")){
                             continue;
                         }else{
                             for (int j = 0; j < verbList.size(); j++){
+                                System.out.println(verbList.get(j));
                                 if(verbList.get(j).equalsIgnoreCase(stringAns.get(i))){
                                     JOptionPane.showMessageDialog(null, "Yes", "20 Questions", JOptionPane.INFORMATION_MESSAGE);
                                     isAnswered = 1;
@@ -84,6 +96,7 @@ public class Game {
                                     break;
                                 }
                             }
+                            //System.out.println(stringAns.get(i));
                             if(i == stringAns.size() - 1 && isAnswered == 0){
                                 JOptionPane.showMessageDialog(null, "No", "20 Questions", JOptionPane.INFORMATION_MESSAGE);
                             }
