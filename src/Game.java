@@ -42,18 +42,15 @@ public class Game {
                         stringAns.add(word);
                     }
                     /*TODO We'll need to convert this to an ArrayList of Array of Strings in order to store the related words*/
-                    ArrayList<String> verbList = new ArrayList<>();
-                    ArrayList<String> categoriesList = new ArrayList<>();
+                    ArrayList<String[]> verbList = new ArrayList<>();
+                    ArrayList<String[]> categoriesList = new ArrayList<>();
                     try{
                         BufferedReader reader = new BufferedReader(new FileReader("/Users/luke/IdeaProjects/20_Questions/verbs.txt"));
                         String line;
                         while((line = reader.readLine()) != null){
                             String wordLine = line;
                             String[] words = wordLine.split("\\s+");
-                            for(int i = 0; i < words.length; i++){
-                                verbList.add(words[i]);
-                            }
-
+                            verbList.add(words);
                         }
                         reader.close();
                     }catch(Exception e){
@@ -66,9 +63,7 @@ public class Game {
                         while((line = reader.readLine()) != null){
                             String wordLine = line;
                             String[] words = wordLine.split("\\s+");
-                            for(int i = 0; i < words.length; i++){
-                                categoriesList.add(line);
-                            }
+                            categoriesList.add(words);
                         }
                         reader.close();
                     }catch(Exception e){
@@ -82,17 +77,33 @@ public class Game {
                             continue;
                         }else{
                             for (int j = 0; j < verbList.size(); j++){
-                                System.out.println(verbList.get(j));
-                                if(verbList.get(j).equalsIgnoreCase(stringAns.get(i))){
-                                    JOptionPane.showMessageDialog(null, "Yes", "20 Questions", JOptionPane.INFORMATION_MESSAGE);
-                                    isAnswered = 1;
+                                int k = 0;
+                                String[] verbTemp = verbList.get(j);
+                                if(verbTemp[k].equalsIgnoreCase(ansWord)){
+                                    for(k = 1; k < verbTemp[k].length(); k++){
+                                        JOptionPane.showMessageDialog(null, "Yes", "20 Questions", JOptionPane.INFORMATION_MESSAGE);
+                                        isAnswered = 1;
+                                        break;
+                                    }
+                                }
+                                if(isAnswered == 1){
                                     break;
                                 }
                             }
+                            if(isAnswered == 1){
+                                continue;
+                            }
                             for (int j = 0; j < categoriesList.size(); j++){
-                                if(categoriesList.get(j).equalsIgnoreCase(stringAns.get(i))){
-                                    JOptionPane.showMessageDialog(null, "Yes", "20 Questions", JOptionPane.INFORMATION_MESSAGE);
-                                    isAnswered = 1;
+                                int k = 0;
+                                String[] categoriesTemp = categoriesList.get(j);
+                                if(categoriesTemp[k].equalsIgnoreCase(ansWord)){
+                                    for(k = 0; k < categoriesTemp[k].length(); k++){
+                                        JOptionPane.showMessageDialog(null, "Yes", "20 Questions", JOptionPane.INFORMATION_MESSAGE);
+                                        isAnswered = 1;
+                                        break;
+                                    }
+                                }
+                                if(isAnswered == 1){
                                     break;
                                 }
                             }
