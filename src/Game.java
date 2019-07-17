@@ -73,7 +73,10 @@ public class Game {
                     /*END TODO*/
                     for (int i = 0; i < stringAns.size(); i++){
                         int isAnswered = 0; //Check to see if question has been answered only used for basic question as of the moment
-                        if (stringAns.get(i).equalsIgnoreCase("is") || stringAns.get(i).equalsIgnoreCase("it") || stringAns.get(i).equalsIgnoreCase("a") || stringAns.get(i).equalsIgnoreCase("Does") || stringAns.get(i).equalsIgnoreCase("an")){
+                        if(stringAns.get(i).equalsIgnoreCase(ansWord)){
+                            JOptionPane.showMessageDialog(null, "Congrats, you've guessed the word!", "20 Questions", JOptionPane.INFORMATION_MESSAGE);
+                            break;
+                        }else if (stringAns.get(i).equalsIgnoreCase("is") || stringAns.get(i).equalsIgnoreCase("it") || stringAns.get(i).equalsIgnoreCase("a") || stringAns.get(i).equalsIgnoreCase("Does") || stringAns.get(i).equalsIgnoreCase("an")){
                             continue;
                         }else{
                             for (int j = 0; j < verbList.size(); j++){
@@ -81,9 +84,11 @@ public class Game {
                                 String[] verbTemp = verbList.get(j);
                                 if(verbTemp[k].equalsIgnoreCase(ansWord)){
                                     for(k = 1; k < verbTemp[k].length(); k++){
-                                        JOptionPane.showMessageDialog(null, "Yes", "20 Questions", JOptionPane.INFORMATION_MESSAGE);
-                                        isAnswered = 1;
-                                        break;
+                                        if(verbTemp[k].equalsIgnoreCase(stringAns.get(i))){
+                                            JOptionPane.showMessageDialog(null, "Yes", "20 Questions", JOptionPane.INFORMATION_MESSAGE);
+                                            isAnswered = 1;
+                                            break;
+                                        }
                                     }
                                 }
                                 if(isAnswered == 1){
@@ -98,9 +103,11 @@ public class Game {
                                 String[] categoriesTemp = categoriesList.get(j);
                                 if(categoriesTemp[k].equalsIgnoreCase(ansWord)){
                                     for(k = 0; k < categoriesTemp[k].length(); k++){
-                                        JOptionPane.showMessageDialog(null, "Yes", "20 Questions", JOptionPane.INFORMATION_MESSAGE);
-                                        isAnswered = 1;
-                                        break;
+                                        if(categoriesTemp[k].equalsIgnoreCase(stringAns.get(i))){
+                                            JOptionPane.showMessageDialog(null, "Yes", "20 Questions", JOptionPane.INFORMATION_MESSAGE);
+                                            isAnswered = 1;
+                                            break;
+                                        }
                                     }
                                 }
                                 if(isAnswered == 1){
@@ -114,6 +121,7 @@ public class Game {
                         }
                     }
                     counter--;
+                    
                 }
             }else{ //If the AI wants to guess the answer
 
