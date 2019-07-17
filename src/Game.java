@@ -25,9 +25,10 @@ public class Game {
                     e.printStackTrace();
                 }
                 Random r = new Random();
+                ArrayList<String> questionsAsked = new ArrayList<>();
                 int getRandomNum = r.nextInt(listOfNouns.size());
-                //String ansWord = listOfNouns.get(getRandomNum);
-                String ansWord = "Fish";//Testing my idea out
+                String ansWord = listOfNouns.get(getRandomNum);
+                //String ansWord = "Fish";//Testing my idea out
                 System.out.println(ansWord);
                 JOptionPane.showMessageDialog(null, "The Word has been selected press Ok to continue.", "20 Questions", JOptionPane.INFORMATION_MESSAGE);
                 while(true){
@@ -35,10 +36,17 @@ public class Game {
                         JOptionPane.showMessageDialog(null, "The correct word is " + ansWord + ". To play again press ok.", "20 Questions", JOptionPane.INFORMATION_MESSAGE);
                         break;
                     }
-                    String answer = JOptionPane.showInputDialog(null, "Ask a Yes/No question, you have " + counter + " chances left.", "20 Questions", JOptionPane.INFORMATION_MESSAGE);
+                    String questionsAskedString = "";
+                    for(int i = 0; i < questionsAsked.size(); i++){
+                        int j = i + 1;
+                        questionsAskedString += j + ". " + questionsAsked.get(i) + "\n";
+                    }
+                    String answer = JOptionPane.showInputDialog(null, "Ask a Yes/No question, you have " + counter + " chances left.\n Previous asked questions:\n" + questionsAskedString, "20 Questions", JOptionPane.INFORMATION_MESSAGE);
+                    questionsAsked.add(answer);
+                    answer = answer.replaceAll("\\s*\\p{Punct}+\\s*$", "");
                     System.out.println(answer);
                     ArrayList<String> stringAns = new ArrayList<String>();
-                    for (String word: answer.split(" ")){
+                    for (String word: answer.split("\\s+")){
                         stringAns.add(word);
                     }
                     /*TODO We'll need to convert this to an ArrayList of Array of Strings in order to store the related words*/
@@ -121,7 +129,7 @@ public class Game {
                         }
                     }
                     counter--;
-                    
+
                 }
             }else{ //If the AI wants to guess the answer
 
