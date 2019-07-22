@@ -27,6 +27,9 @@ public class Game {
                 Random r = new Random();
                 ArrayList<String> questionsAsked = new ArrayList<>();
                 int getRandomNum = r.nextInt(listOfNouns.size());
+
+                /*LOL how am I gonnna get the ansWord dictionary XD
+                * */
                 String ansWord = listOfNouns.get(getRandomNum);
                 //String ansWord = "Fish";//Testing my idea out
                 System.out.println(ansWord);
@@ -132,7 +135,19 @@ public class Game {
 
                 }
             }else{ //If the AI wants to guess the answer
-
+                ArrayList<String[]> getListofQuestions = new ArrayList<>();
+                int questionsRemaining = 20;
+                int playagain = 0;
+                while(true){
+                    if(questionsRemaining == 0){
+                        playagain = JOptionPane.showConfirmDialog(null, "Would you like to play again?", "20 Questions", JOptionPane.INFORMATION_MESSAGE);
+                        if (playagain == 0){
+                            break;
+                        }else{
+                            
+                        }
+                    }
+                }
             }
         }
     }
