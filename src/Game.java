@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class Game {
-    String fileName = "/Users/luke/IdeaProjects/20_Questions/nouns.txt";
+    String fileName = "nouns.txt";
     public void startGame(){
         ArrayList<String> listOfNouns = new ArrayList<>();
         int temp = 0;
@@ -26,12 +26,12 @@ public class Game {
                 }
                 Random r = new Random();
                 ArrayList<String> questionsAsked = new ArrayList<>();
-                int getRandomNum = r.nextInt(listOfNouns.size());
+                //int getRandomNum = r.nextInt(listOfNouns.size());
 
                 /*LOL how am I gonnna get the ansWord dictionary XD
                 * */
-                String ansWord = listOfNouns.get(getRandomNum);
-                //String ansWord = "Fish";//Testing my idea out
+                //String ansWord = listOfNouns.get(getRandomNum);
+                String ansWord = "Fish";//Testing my idea out
                 System.out.println(ansWord);
                 JOptionPane.showMessageDialog(null, "The Word has been selected press Ok to continue.", "20 Questions", JOptionPane.INFORMATION_MESSAGE);
                 while(true){
@@ -56,7 +56,7 @@ public class Game {
                     ArrayList<String[]> verbList = new ArrayList<>();
                     ArrayList<String[]> categoriesList = new ArrayList<>();
                     try{
-                        BufferedReader reader = new BufferedReader(new FileReader("/Users/luke/IdeaProjects/20_Questions/verbs.txt"));
+                        BufferedReader reader = new BufferedReader(new FileReader("verbs.txt"));
                         String line;
                         while((line = reader.readLine()) != null){
                             String wordLine = line;
@@ -69,7 +69,7 @@ public class Game {
                         e.printStackTrace();
                     }
                     try{
-                        BufferedReader reader = new BufferedReader(new FileReader("/Users/luke/IdeaProjects/20_Questions/categories.txt"));
+                        BufferedReader reader = new BufferedReader(new FileReader("categories.txt"));
                         String line;
                         while((line = reader.readLine()) != null){
                             String wordLine = line;
@@ -143,9 +143,10 @@ public class Game {
                         playagain = JOptionPane.showConfirmDialog(null, "Would you like to play again?", "20 Questions", JOptionPane.INFORMATION_MESSAGE);
                         if (playagain == 0){
                             break;
-                        }else{
-                            
                         }
+                    }else{
+
+                        questionsRemaining--;
                     }
                 }
             }
