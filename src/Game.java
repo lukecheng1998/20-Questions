@@ -82,10 +82,12 @@ public class Game {
                         e.printStackTrace();
                     }
                     /*END TODO*/
+                    int gameIsWon = 0;
                     for (int i = 0; i < stringAns.size(); i++){
                         int isAnswered = 0; //Check to see if question has been answered only used for basic question as of the moment
                         if(stringAns.get(i).equalsIgnoreCase(ansWord)){
                             JOptionPane.showMessageDialog(null, "Congrats, you've guessed the word!", "20 Questions", JOptionPane.INFORMATION_MESSAGE);
+                            gameIsWon =1;
                             break;
                         }else if (stringAns.get(i).equalsIgnoreCase("is") || stringAns.get(i).equalsIgnoreCase("it") || stringAns.get(i).equalsIgnoreCase("a") || stringAns.get(i).equalsIgnoreCase("Does") || stringAns.get(i).equalsIgnoreCase("an")){
                             continue;
@@ -132,7 +134,9 @@ public class Game {
                         }
                     }
                     counter--;
-
+                    if(gameIsWon == 1){
+                        JOptionPane.showConfirmDialog(null,"Would you like to play again?","20 Questions", JOptionPane.QUESTION_MESSAGE);
+                    }
                 }
             }else{ //If the AI wants to guess the answer
                 ArrayList<String[]> getListofQuestions = new ArrayList<>();
