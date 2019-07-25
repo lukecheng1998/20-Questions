@@ -49,9 +49,7 @@ public class Game {
                     answer = answer.replaceAll("\\s*\\p{Punct}+\\s*$", "");
                     System.out.println(answer);
                     ArrayList<String> stringAns = new ArrayList<String>();
-                    for (String word: answer.split("\\s+")){
-                        stringAns.add(word);
-                    }
+
                     /*TODO We'll need to convert this to an ArrayList of Array of Strings in order to store the related words*/
                     ArrayList<String[]> verbList = new ArrayList<>();
                     ArrayList<String[]> categoriesList = new ArrayList<>();
@@ -83,6 +81,7 @@ public class Game {
                     }
                     /*END TODO*/
                     int gameIsWon = 0;
+                    String getRes = "";
                     for (int i = 0; i < stringAns.size(); i++){
                         int isAnswered = 0; //Check to see if question has been answered only used for basic question as of the moment
                         if(stringAns.get(i).equalsIgnoreCase(ansWord)){
@@ -99,6 +98,7 @@ public class Game {
                                     for(k = 1; k < verbTemp[k].length(); k++){
                                         if(verbTemp[k].equalsIgnoreCase(stringAns.get(i))){
                                             JOptionPane.showMessageDialog(null, "Yes", "20 Questions", JOptionPane.INFORMATION_MESSAGE);
+                                            getRes = "Yes";
                                             isAnswered = 1;
                                             break;
                                         }
@@ -118,6 +118,7 @@ public class Game {
                                     for(k = 0; k < categoriesTemp[k].length(); k++){
                                         if(categoriesTemp[k].equalsIgnoreCase(stringAns.get(i))){
                                             JOptionPane.showMessageDialog(null, "Yes", "20 Questions", JOptionPane.INFORMATION_MESSAGE);
+                                            getRes = "Yes";
                                             isAnswered = 1;
                                             break;
                                         }
@@ -130,8 +131,12 @@ public class Game {
                             //System.out.println(stringAns.get(i));
                             if(i == stringAns.size() - 1 && isAnswered == 0){
                                 JOptionPane.showMessageDialog(null, "No", "20 Questions", JOptionPane.INFORMATION_MESSAGE);
+                                getRes = "No";
                             }
                         }
+                    }
+                    for (String word: answer.split("\\s+")){
+                        stringAns.add(word + "Response: " + getRes);
                     }
                     counter--;
                     if(gameIsWon == 1){
