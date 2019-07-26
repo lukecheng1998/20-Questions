@@ -26,12 +26,12 @@ public class Game {
                 }
                 Random r = new Random();
                 ArrayList<String> questionsAsked = new ArrayList<>();
-                //int getRandomNum = r.nextInt(listOfNouns.size());
+                int getRandomNum = r.nextInt(listOfNouns.size());
 
                 /*LOL how am I gonnna get the ansWord dictionary XD
                 * */
-                //String ansWord = listOfNouns.get(getRandomNum);
-                String ansWord = "Fish";//Testing my idea out
+                String ansWord = listOfNouns.get(getRandomNum);
+                //String ansWord = "Fish";//Testing my idea out
                 System.out.println(ansWord);
                 JOptionPane.showMessageDialog(null, "The Word has been selected press Ok to continue.", "20 Questions", JOptionPane.INFORMATION_MESSAGE);
                 int QuestionLocation = 0;
