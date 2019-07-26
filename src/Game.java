@@ -49,7 +49,9 @@ public class Game {
                     answer = answer.replaceAll("\\s*\\p{Punct}+\\s*$", "");
                     System.out.println(answer);
                     ArrayList<String> stringAns = new ArrayList<String>();
-
+                    for (String word: answer.split("\\s+")){
+                        stringAns.add(word);
+                    }
                     /*TODO We'll need to convert this to an ArrayList of Array of Strings in order to store the related words*/
                     ArrayList<String[]> verbList = new ArrayList<>();
                     ArrayList<String[]> categoriesList = new ArrayList<>();
@@ -135,9 +137,7 @@ public class Game {
                             }
                         }
                     }
-                    for (String word: answer.split("\\s+")){
-                        stringAns.add(word + "Response: " + getRes);
-                    }
+
                     counter--;
                     if(gameIsWon == 1){
                         JOptionPane.showConfirmDialog(null,"Would you like to play again?","20 Questions", JOptionPane.QUESTION_MESSAGE);
