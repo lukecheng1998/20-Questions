@@ -34,6 +34,7 @@ public class Game {
                 String ansWord = "Fish";//Testing my idea out
                 System.out.println(ansWord);
                 JOptionPane.showMessageDialog(null, "The Word has been selected press Ok to continue.", "20 Questions", JOptionPane.INFORMATION_MESSAGE);
+                int QuestionLocation = 0;
                 while(true){
                     if(counter == 0){
                         JOptionPane.showMessageDialog(null, "The correct word is " + ansWord + ". To play again press ok.", "20 Questions", JOptionPane.INFORMATION_MESSAGE);
@@ -42,10 +43,10 @@ public class Game {
                     String questionsAskedString = "";
                     for(int i = 0; i < questionsAsked.size(); i++){
                         int j = i + 1;
-                        questionsAskedString += j + ". " + questionsAsked.get(i) + "\n";
+                        questionsAskedString += j + ". " + questionsAsked.get(i);
                     }
                     String answer = JOptionPane.showInputDialog(null, "Ask a Yes/No question, you have " + counter + " chances left.\n Previous asked questions:\n" + questionsAskedString, "20 Questions", JOptionPane.INFORMATION_MESSAGE);
-                    questionsAsked.add(answer);
+                    //questionsAsked.add(answer);
                     answer = answer.replaceAll("\\s*\\p{Punct}+\\s*$", "");
                     System.out.println(answer);
                     ArrayList<String> stringAns = new ArrayList<String>();
@@ -142,6 +143,8 @@ public class Game {
                     if(gameIsWon == 1){
                         JOptionPane.showConfirmDialog(null,"Would you like to play again?","20 Questions", JOptionPane.QUESTION_MESSAGE);
                     }
+                    answer += "    Answer: " + getRes + '\n';
+                    questionsAsked.add(answer);
                 }
             }else{ //If the AI wants to guess the answer
                 ArrayList<String[]> getListofQuestions = new ArrayList<>();
