@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5ef9986a-7cb1-45ca-8cd9-76fa5f2709ef" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/categories.txt" beforeDir="false" afterPath="$PROJECT_DIR$/categories.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/20_Questions/Game.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/20_Questions/Game.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/verbs.txt" beforeDir="false" afterPath="$PROJECT_DIR$/verbs.txt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -106,7 +101,7 @@
       <workItem from="1564043375548" duration="712000" />
       <workItem from="1564116098279" duration="1242000" />
       <workItem from="1564161903012" duration="1228000" />
-      <workItem from="1564183112657" duration="3846000" />
+      <workItem from="1564183112657" duration="4589000" />
     </task>
     <servers />
   </component>
@@ -139,22 +134,6 @@
         </entry>
       </map>
     </option>
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Game.java</url>
-          <line>103</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Game.java</url>
-          <line>124</line>
-          <option name="timeStamp" value="2" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
   <component name="masterDetails">
     <states>

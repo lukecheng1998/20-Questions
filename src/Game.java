@@ -107,7 +107,7 @@ public class Game {
                                 if(verbTemp[k].equalsIgnoreCase(ansWord)){
                                     System.out.println(verbTemp[k].length());
                                     for(int z = 0; z < verbTemp[k].length(); z++){
-                                        if(verbTemp[z].equalsIgnoreCase(stringAns.get(i))){
+                                        if(verbTemp[k].equalsIgnoreCase(stringAns.get(i))){
                                             JOptionPane.showMessageDialog(null, "Yes", "20 Questions", JOptionPane.INFORMATION_MESSAGE);
                                             getRes = "Yes";
                                             isAnswered = 1;
