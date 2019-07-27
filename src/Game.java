@@ -26,12 +26,19 @@ public class Game {
                 }
                 Random r = new Random();
                 ArrayList<String> questionsAsked = new ArrayList<>();
-                int getRandomNum = r.nextInt(listOfNouns.size());
-
+                ArrayList<String> templistofNouns = new ArrayList<>();
+                templistofNouns.add("Fish");
+                templistofNouns.add("Motivation");
+                templistofNouns.add("Formamide");
+                templistofNouns.add("Hexagon");
+                templistofNouns.add("Blizzard");
+                //int getRandomNum = r.nextInt(listOfNouns.size());
+                int getRandomNum = r.nextInt(templistofNouns.size());
                 /*LOL how am I gonnna get the ansWord dictionary XD
                 * */
-                String ansWord = listOfNouns.get(getRandomNum);
-                //String ansWord = "Fish";//Testing my idea out
+                String ansWord = templistofNouns.get(getRandomNum);
+
+                //String ansWord = ;//Testing my idea out
                 System.out.println(ansWord);
                 JOptionPane.showMessageDialog(null, "The Word has been selected press Ok to continue.", "20 Questions", JOptionPane.INFORMATION_MESSAGE);
                 int QuestionLocation = 0;
@@ -98,8 +105,9 @@ public class Game {
                                 int k = 0;
                                 String[] verbTemp = verbList.get(j);
                                 if(verbTemp[k].equalsIgnoreCase(ansWord)){
-                                    for(k = 1; k < verbTemp[k].length(); k++){
-                                        if(verbTemp[k].equalsIgnoreCase(stringAns.get(i))){
+                                    System.out.println(verbTemp[k].length());
+                                    for(int z = 0; z < verbTemp[k].length(); z++){
+                                        if(verbTemp[z].equalsIgnoreCase(stringAns.get(i))){
                                             JOptionPane.showMessageDialog(null, "Yes", "20 Questions", JOptionPane.INFORMATION_MESSAGE);
                                             getRes = "Yes";
                                             isAnswered = 1;
@@ -118,8 +126,8 @@ public class Game {
                                 int k = 0;
                                 String[] categoriesTemp = categoriesList.get(j);
                                 if(categoriesTemp[k].equalsIgnoreCase(ansWord)){
-                                    for(k = 0; k < categoriesTemp[k].length(); k++){
-                                        if(categoriesTemp[k].equalsIgnoreCase(stringAns.get(i))){
+                                    for(int z = 0; z < categoriesTemp[k].length(); z++){
+                                        if(categoriesTemp[z].equalsIgnoreCase(stringAns.get(i))){
                                             JOptionPane.showMessageDialog(null, "Yes", "20 Questions", JOptionPane.INFORMATION_MESSAGE);
                                             getRes = "Yes";
                                             isAnswered = 1;
