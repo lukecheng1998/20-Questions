@@ -8,6 +8,7 @@ public class Game {
     String fileName = "nouns.txt";
     public void startGame(){
         ArrayList<String> listOfNouns = new ArrayList<>();
+        int isDonePlaying = 0;
         int temp = 0;
         while(true){
             int counter = 20;
@@ -38,7 +39,7 @@ public class Game {
                 * */
                 String ansWord = templistofNouns.get(getRandomNum);
 
-                //String ansWord = ;//Testing my idea out
+                //String ansWord = listOfNouns.get(getRandomNum);//Testing my idea out
                 System.out.println(ansWord);
                 JOptionPane.showMessageDialog(null, "The Word has been selected press Ok to continue.", "20 Questions", JOptionPane.INFORMATION_MESSAGE);
                 int QuestionLocation = 0;
@@ -92,13 +93,14 @@ public class Game {
                     /*END TODO*/
                     int gameIsWon = 0;
                     String getRes = "";
+                    //int i = 0;
                     for (int i = 0; i < stringAns.size(); i++){
                         int isAnswered = 0; //Check to see if question has been answered only used for basic question as of the moment
                         if(stringAns.get(i).equalsIgnoreCase(ansWord)){
                             JOptionPane.showMessageDialog(null, "Congrats, you've guessed the word!", "20 Questions", JOptionPane.INFORMATION_MESSAGE);
                             gameIsWon =1;
                             break;
-                        }else if (stringAns.get(i).equalsIgnoreCase("is") || stringAns.get(i).equalsIgnoreCase("it") || stringAns.get(i).equalsIgnoreCase("a") || stringAns.get(i).equalsIgnoreCase("Does") || stringAns.get(i).equalsIgnoreCase("an")){
+                        }else if (stringAns.get(i).equalsIgnoreCase("is") || stringAns.get(i).equalsIgnoreCase("a") || stringAns.get(i).equalsIgnoreCase("Does") || stringAns.get(i).equalsIgnoreCase("an") || stringAns.get(i).equalsIgnoreCase("Can")){
                             continue;
                         }else{
                             for (int j = 0; j < verbList.size(); j++){
