@@ -27,19 +27,19 @@ public class Game {
                 }
                 Random r = new Random();
                 ArrayList<String> questionsAsked = new ArrayList<>();
-                ArrayList<String> templistofNouns = new ArrayList<>();
+                ArrayList<String> templistofNouns = new ArrayList<>(); //Switch this
                 templistofNouns.add("Fish");
                 templistofNouns.add("Motivation");
                 templistofNouns.add("Formamide");
                 templistofNouns.add("Hexagon");
                 templistofNouns.add("Blizzard");
-                //int getRandomNum = r.nextInt(listOfNouns.size());
+                templistofNouns.add("Airport");
+                //int getRandomNum = r.nextInt(listOfNouns.size()); //Switch this
                 int getRandomNum = r.nextInt(templistofNouns.size());
                 /*LOL how am I gonnna get the ansWord dictionary XD
                 * */
                 String ansWord = templistofNouns.get(getRandomNum);
-
-                //String ansWord = listOfNouns.get(getRandomNum);//Testing my idea out
+                //String ansWord = listOfNouns.get(getRandomNum);//Testing my idea out Switch this
                 System.out.println(ansWord);
                 JOptionPane.showMessageDialog(null, "The Word has been selected press Ok to continue.", "20 Questions", JOptionPane.INFORMATION_MESSAGE);
                 int QuestionLocation = 0;
@@ -162,12 +162,18 @@ public class Game {
                 int playagain = 0;
                 while(true){
                     if(questionsRemaining == 0){
-                        playagain = JOptionPane.showConfirmDialog(null, "Would you like to play again?", "20 Questions", JOptionPane.INFORMATION_MESSAGE);
+                        playagain = JOptionPane.showConfirmDialog(null, "Would you like to play again?", "20 Questions", JOptionPane.YES_NO_OPTION);
                         if (playagain == 0){
                             break;
                         }
                     }else{
+                        int firstQuestionsCheck = 0;
+                        if(questionsRemaining == 20){
+                            firstQuestionsCheck = JOptionPane.showConfirmDialog(null, "Does it exist?", "20 Questions", JOptionPane.YES_NO_OPTION);
+                        }
+                        if(firstQuestionsCheck == 1){
 
+                        }
                         questionsRemaining--;
                     }
                 }
